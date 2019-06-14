@@ -7,14 +7,20 @@ class EventDetailsContainer extends React.PureComponent {
   
   componentDidMount() {
     this.props.loadEvent(Number(this.props.match.params.id))
+    
+   
   }
+  
+    
   render() {
-    const {match, event} = this.props
-    return (<EventDetails event={event && match.params.id == event.id && event}  />)
+    
+  //  const {match, event} = this.props
+    return (<EventDetails event={this.props.event} tickets={this.props.tickets} />)
 }}
-
+// {event && match.params.id === event.id && event} 
 const mapStateToProps = state => ({
-  event: state.event
+  event: state.event,
+  tickets: state.event.tickets
 })
 
 export default connect(mapStateToProps, {loadEvent})(EventDetailsContainer)

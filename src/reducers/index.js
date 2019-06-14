@@ -8,5 +8,5 @@ export default combineReducers({
   newUser,
   authUser,
   events,
-  event
+  event,
 })

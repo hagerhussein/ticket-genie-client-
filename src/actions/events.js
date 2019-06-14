@@ -3,6 +3,7 @@ import request from 'superagent'
 export const EVENTS_FETCHED = 'EVENTS_FETCHED'
 export const EVENT_FETCHED = 'EVENT_FETCHED'
 
+
 const baseUrl = 'http://localhost:4000'
 
 const eventsFetched = events => ({
@@ -10,10 +11,11 @@ const eventsFetched = events => ({
   events
 })
 
-const eventFetched = event => ({
-type: EVENTS_FETCHED,
+const eventFetched = (event) => ({
+type: EVENT_FETCHED,
 event
 })
+
 
 export const loadEvents = () => (dispatch, getState) => {
   if (getState().events) return

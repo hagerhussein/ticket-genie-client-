@@ -1,14 +1,21 @@
 import React from 'react'
 
 export default function EventDetails(props) {
-  
-  if (!props.event) return 'Loading event data...'
-
+  console.log(props.tickets)
   return (
-    <div><h1>{props.event.name}</h1>
-        
-    <i>Date: {props.event.date}</i>
-    
-    <p>{props.event.description}</p>
-    </div>)
+ 
+    <div>
+       {!props.event && 'Loading event data...'}
+
+     {props.event && <div> 
+       <h1>{props.event.name}</h1>
+        <p>{props.event.description}</p>
+        </div>}
+        {props.tickets && props.tickets.map(ticket => (
+          <div> 
+            <p>{ticket.description}</p>
+          </div>
+        ))}
+       </div>
+    )
 }
