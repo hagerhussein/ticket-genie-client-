@@ -28,7 +28,6 @@ class TicketDetailsContainer extends React.Component {
 
   
   render() {
-    // const {match, ticket} = this.props
     return (
       <div>
     <TicketDetails ticket={this.props.ticket} comments={this.props.comments} />

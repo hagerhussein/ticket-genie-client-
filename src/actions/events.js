@@ -2,6 +2,8 @@ import request from 'superagent'
 
 export const EVENTS_FETCHED = 'EVENTS_FETCHED'
 export const EVENT_FETCHED = 'EVENT_FETCHED'
+export const EVENT_CREATE_SUCCESS = 'EVENT_CREATE_SUCCESS'
+
 
 
 const baseUrl = 'http://localhost:4000'
@@ -15,7 +17,10 @@ const eventFetched = event => ({
 type: EVENT_FETCHED,
 event
 })
-
+const eventCreateSuccess = event => ({
+  type: EVENT_CREATE_SUCCESS,
+  event
+})
 
 export const loadEvents = () => (dispatch, getState) => {
   if (getState().events) return
@@ -38,4 +43,15 @@ export const loadEvent = (id) => (dispatch, getState) => {
   .catch(console.error)
 }
  
+export const createEvent = (data) => (dispatch, getState) => {
+  const jwt = getState().authUser
 
+  request
+    .post(`${baseUrl}/events`)
+    .set('Authorization', `Bearer ${jwt}`)
+    .send(data)
+    .then(response => {
+      dispatch(eventCreateSuccess(response.body))
+    })
+    .catch(console.error)
+}

@@ -3,10 +3,31 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { loadEvent } from '../actions/events'
 import EventDetails from './EventDetails'
-import { loadTickets } from '../actions/tickets'
+import { loadTickets, createTicket } from '../actions/tickets'
+import CreateTicketForm from './CreateTicketForm'
 
 class EventDetailsContainer extends React.PureComponent {
-
+  state = {
+    picture: '',
+    description: '',
+    price: '',
+    eventId: this.props.event.id
+  }
+  onChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+  onSubmit = (event) => {
+    event.preventDefault()
+    this.setState({
+      picture: '',
+      description: '',
+      price: '',
+     
+    })
+    this.props.createTicket(this.state)
+  }
   componentDidMount() {
     this.props.loadEvent(Number(this.props.match.params.id))
     console.log(this.props.tickets)
@@ -35,24 +56,27 @@ class EventDetailsContainer extends React.PureComponent {
         return ticket.risk
       }
     }
-    const timeRisk = (ticket) =>{
+    const timeRisk = (ticket) => {
       let time = new Date(ticket.createdAt).getUTCHours()
       if (time >= 9 && time <= 17) {
         return ticket.risk -= 10
-      } else { return ticket.risk += 10}
+      } else { return ticket.risk += 10 }
     }
-   const commentsRisk = (ticket) => {
-     if(ticket.comments.length > 3) {
-       return ticket.risk += 5
-     } else {
-       return ticket.risk
-     }
-   }
+    const commentsRisk = (ticket) => {
+      if (ticket.comments.length > 3) {
+        return ticket.risk += 5
+      } else {
+        return ticket.risk
+      }
     }
+  }
 
 
   render() {
-    return (<EventDetails event={this.props.event} tickets={this.props.tickets} />)
+    return (
+    <div><EventDetails event={this.props.event} tickets={this.props.tickets} />)
+    <CreateTicketForm onSubmit={this.onSubmit} onChange={this.onChange} values={this.state} />
+   </div>)
   }
 }
 // {event && match.params.id === event.id && event} 
@@ -62,4 +86,4 @@ const mapStateToProps = state => ({
   allTickets: state.allTickets
 })
 
-export default connect(mapStateToProps, { loadEvent, loadTickets })(EventDetailsContainer)
+export default connect(mapStateToProps, { loadEvent, loadTickets, createTicket })(EventDetailsContainer)

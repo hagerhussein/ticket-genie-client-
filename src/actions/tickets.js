@@ -3,6 +3,7 @@ import request from 'superagent'
 
 export const TICKET_FETCHED = 'TICKET_FETCHED'
 export const ALL_TICKETS = 'ALL_TICKETS'
+export const  CREATE_TICKET_SUCCESS = ' CREATE_TICKET_SUCCESS'
 
 const baseUrl = 'http://localhost:4000'
 
@@ -13,6 +14,10 @@ const ticketFetched = ticket => ({
 const allTickets = tickets =>({
   type: ALL_TICKETS,
   tickets
+})
+const createTicketSuccess = ticket =>({
+  type: CREATE_TICKET_SUCCESS,
+  ticket
 })
 export const loadTicket = (id) => (dispatch, getState) => {
   const state = getState().ticket
@@ -30,6 +35,19 @@ export const loadTickets = () => (dispatch, getState) => {
   request(`${baseUrl}/tickets`)
     .then(response => {
       dispatch(allTickets(response.body.tickets))
+    })
+    .catch(console.error)
+}
+
+export const createTicket = (data) => (dispatch, getState) => {
+  const jwt = getState().currentUser
+  
+  request
+    .post(`${baseUrl}/tickets`)
+    .set('Authorization', `Bearer ${jwt}`)
+    .send(data)
+    .then(response => {
+      dispatch(createTicketSuccess(response.body))
     })
     .catch(console.error)
 }
