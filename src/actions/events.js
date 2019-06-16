@@ -11,7 +11,7 @@ const eventsFetched = events => ({
   events
 })
 
-const eventFetched = (event) => ({
+const eventFetched = event => ({
 type: EVENT_FETCHED,
 event
 })

@@ -11,6 +11,7 @@ class LoginFormContainer extends React.Component{
   onSubmit = (event) => {
     event.preventDefault()
     this.props.login(this.state.email, this.state.password)
+    console.log(this.state.authUser)
   }
 
   onChange = (event) => {
@@ -22,4 +23,7 @@ class LoginFormContainer extends React.Component{
     return <LoginForm onSubmit={this.onSubmit} onChange={this.onChange} values={this.state} />
   }
   }
-export default connect(null, {login})(LoginFormContainer)
+  const mapStateToProps = state => ({
+   authUser: state.authUser
+  })
+export default connect(mapStateToProps, {login})(LoginFormContainer)

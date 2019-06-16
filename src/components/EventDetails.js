@@ -1,7 +1,10 @@
+/* eslint-disable no-self-compare */
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 export default function EventDetails(props) {
-  console.log(props.tickets)
+ console.log(props.tickets)
+
   return (
  
     <div>
@@ -13,9 +16,9 @@ export default function EventDetails(props) {
         </div>}
         {props.tickets && props.tickets.map(ticket => (
           <div> 
-            <p>{ticket.description}</p>
+            <p key={ticket.id}><Link to={`/tickets/${ticket.id}`}>{ticket.description}</Link></p>
           </div>
         ))}
        </div>
-    )
+    ) 
 }

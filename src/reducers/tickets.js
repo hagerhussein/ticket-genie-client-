@@ -1,10 +1,8 @@
-import { EVENT_FETCHED } from '../actions/events'
-
-
+import{ ALL_TICKETS } from '../actions/tickets'
 export default function (state = [], action) {
   switch(action.type) {
-    case EVENT_FETCHED:
-      return action.event
+      case ALL_TICKETS:
+        return action.tickets
       default:
         return state
     }
