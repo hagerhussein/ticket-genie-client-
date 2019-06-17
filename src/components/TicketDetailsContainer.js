@@ -7,7 +7,7 @@ import { postComment } from '../actions/comments'
 
 class TicketDetailsContainer extends React.Component {
   state = {
-    comment: ''
+    text: ''
   }
 
   componentDidMount() {
@@ -22,7 +22,7 @@ class TicketDetailsContainer extends React.Component {
 
   onPost = (event) => {
     event.preventDefault()
-    this.props.postComment(this.state.comment, this.props.ticketId)
+    this.props.postComment(this.state.text, this.props.ticketId)
   }
   
 
@@ -33,14 +33,15 @@ class TicketDetailsContainer extends React.Component {
     <TicketDetails ticket={this.props.ticket} comments={this.props.comments} />
   
     
-    <PostCommentForm onChange={this.onChange} onSubmit={this.onPost} values={this.state} />
+    <PostCommentForm onChange={this.props.onChange} onSubmit={this.props.onPost} values={this.state} />
     </div>
     )
   }
 }
 const mapStateToProps = state => ({
   ticket: state.ticket,
-  comments: state.ticket.comments
+  comments: state.ticket.comments,
+  comment: state.text
 })
 
 export default connect(mapStateToProps, { loadTicket, postComment })(TicketDetailsContainer)

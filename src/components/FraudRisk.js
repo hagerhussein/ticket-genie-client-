@@ -1,25 +1,19 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-
-
-class FraudRisk extends React.Component {
-  render() {
-
-    return (
-      <div className="dog-breed-images">
-        <h1>Dogs Breed Images</h1>
-
-        <p className="dogBreeds">This page shows 10 images of the <b>{this.props.breed}</b> breed. Study them well!</p>
-
-        <p><Link to="/">Go back to the index</Link></p>
-        <div >
-          {this.props.images && this.props.images.map(url => <img src={url} alt="Dog" />)}
-          {!this.props.images && 'Loading...'}
-        </div>
-      </div>
-    )
+export default function priceRisk(ticket) {
+  let totalPrice = this.props.tickets.map(ticket => ticket.price)
+    .reduce(function (accumulator, currentValue) {
+      return accumulator + currentValue;
+    }, 0);
+  let numberOfTickets = this.props.tickets.length
+  let avrgPrice = totalPrice / numberOfTickets
+  let difOfPrice = avrgPrice - ticket.price
+  if (difOfPrice > 0) {
+    return ticket.risk += difOfPrice
+  } if (difOfPrice < 0) {
+    return ticket.risk = ticket.risk + difOfPrice
+  }
+  if (difOfPrice < -10) {
+    return ticket.risk -= 10
+  } else {
+    return ticket.risk
   }
 }
-
-export default connect()(DogBreedImages);

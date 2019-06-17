@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {  createTicket } from '../actions/tickets'
+import { createTicket } from '../actions/tickets'
 import CreateTicketForm from './CreateTicketForm'
 
 class CreateTicketFormContainer extends React.PureComponent {
@@ -21,16 +21,16 @@ class CreateTicketFormContainer extends React.PureComponent {
       picture: '',
       description: '',
       price: '',
-     
+
     })
     this.props.createTicket(this.state)
     this.props.history.push("/")
   }
   render() {
     return (
-    <div>
-    <CreateTicketForm onSubmit={this.onSubmit} onChange={this.onChange} values={this.state} />
-   </div>)
+      <div>
+        <CreateTicketForm onSubmit={this.onSubmit} onChange={this.onChange} values={this.state} />
+      </div>)
   }
 }
 const mapStateToProps = state => ({

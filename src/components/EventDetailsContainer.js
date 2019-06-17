@@ -4,26 +4,26 @@ import { connect } from 'react-redux'
 import { loadEvent } from '../actions/events'
 import EventDetails from './EventDetails'
 import { loadTickets } from '../actions/tickets'
+import { priceRisk } from './FraudRisk'
 
 
 class EventDetailsContainer extends React.PureComponent {
- 
- 
+
+
   componentDidMount() {
     this.props.loadEvent(Number(this.props.match.params.id))
-    console.log(this.props.tickets)
     this.props.loadTickets()
-    console.log(this.props.allTickets)
 
   }
-  componentDidUpdate(prevProps, prevState) {
+  /* componentDidUpdate(prevProps, prevState) {
     let totalPrice = this.props.tickets.map(ticket => ticket.price)
       .reduce(function (accumulator, currentValue) {
         return accumulator + currentValue;
       }, 0);
+      console.log(totalPrice)
     let numberOfTickets = this.props.tickets.length
     let avrgPrice = totalPrice / numberOfTickets
-
+    console.log(avrgPrice)
     const priceRisk = (ticket) => {
       let difOfPrice = avrgPrice - ticket.price
       if (difOfPrice > 0) {
@@ -37,6 +37,14 @@ class EventDetailsContainer extends React.PureComponent {
         return ticket.risk
       }
     }
+    const authorRisk = (ticket) =>{
+      let result = this.props.tickets.filter(element => element.userId === ticket.userId)
+      if (result === 1) {
+        return ticket.risk +=10
+      } else {
+        return ticket.risk
+      }
+    }
     const commentsRisk = (ticket) => {
       if (ticket.comments.length > 3) {
         return ticket.risk += 5
@@ -46,22 +54,25 @@ class EventDetailsContainer extends React.PureComponent {
     }
     this.props.tickets.forEach(ticket => {
       let finalRisk = priceRisk(ticket);
-     //let riskTwo =  commentsRisk(ticket)
+     return ticket.risk + finalRisk
     });
-  }
+  }*/
 
 
   render() {
     return (
-    <div>
-      <EventDetails event={this.props.event} tickets={this.props.tickets} />
-   </div>)
+      <div>
+        <EventDetails
+          event={this.props.event}
+          tickets={this.props.tickets}
+        />
+      </div>)
   }
 }
 const mapStateToProps = state => ({
   event: state.event,
   tickets: state.event.tickets,
-  allTickets: state.allTickets
+  allTickets: state.allTickets,
 })
 
 export default connect(mapStateToProps, { loadEvent, loadTickets })(EventDetailsContainer)

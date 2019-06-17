@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux'
+import { combineReducers } from 'redux'
 import newUser from './newUser'
 import authUser from './authUser'
 import events from './events'
@@ -12,7 +12,7 @@ export default combineReducers({
   authUser,
   events,
   event,
-  ticket, 
-  comment, 
+  ticket,
+  comment,
   allTickets
 })
