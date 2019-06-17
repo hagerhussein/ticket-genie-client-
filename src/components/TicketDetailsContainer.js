@@ -22,7 +22,7 @@ class TicketDetailsContainer extends React.Component {
 
   onPost = (event) => {
     event.preventDefault()
-    this.props.postComment(this.state.comment)
+    this.props.postComment(this.state.comment, this.props.ticketId)
   }
   
 

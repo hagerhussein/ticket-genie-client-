@@ -1,7 +1,7 @@
 const persistData = store => next => action => {
   next(action);
-  localStorage['reduxStore'] = JSON.stringify(store.getState());
-  console.log('Local Storage:', localStorage['reduxStore']);
+  localStorage['authUser'] = JSON.stringify(store.getState());
+  console.log('Local Storage:', localStorage['authuser']);
 }
 
 export default persistData

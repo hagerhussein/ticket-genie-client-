@@ -1,33 +1,78 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Courgette|Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Crete+Round');
+
+body {
+  background-color: rgba(250, 255, 255, 0.425);
+  
+}
+
+img {
+  height: 380px;
+  width: 500px;
+  border-radius: 12px;
+  margin-top: 5%;
+  
+}
+
+a:link {
+  text-decoration: none;
+  color:rgb(241, 120, 83);
+}
+a:visited {
+color:rgb(241, 120, 83);
+}
+h1{
+color: #67b9fc;
+font-size: 3em;
+font-family:'Courgette', cursive;
+}
+
+.topnav {
+  background-color: rgb(0, 0, 0);
+  overflow: hidden;
+}
+.topnav a {
+  float: left;
+  color: #f2f2f2;
   text-align: center;
+  padding: 14px 16px;
+  margin-bottom: 2%;
+  font-size: 17px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+button {
+  background-color: #4CAF50;
   color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  opacity: 0.9;
 }
-
-.App-link {
-  color: #61dafb;
+.form a{
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  margin-bottom: 2%;
+  font-size: 17px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+p{
+  font-size: 20px;
+}
+.react-icons {
+  vertical-align: middle;
+}
+.column {
+  float: left;
+  width: 33.33%;
 }

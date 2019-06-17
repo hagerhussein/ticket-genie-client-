@@ -1,7 +1,8 @@
 import React from 'react'
 
 export default function LoginForm(props) {
-  return (<form onSubmit={props.onSubmit}> 
+  return (
+  <form onSubmit={props.onSubmit}> 
     <label>
       Email:
       <input type="text" name="email" value={props.values.email} onChange={props.onChange} />

@@ -9,13 +9,13 @@ const createComment = comment => ({
   comment
 })
 
-export const postComment = (data) => (dispatch, getState) => {
-  const jwt = getState().authUser
+export const postComment = (data, ticketId) => (dispatch, getState) => {
+ // const jwt = getState().authUser
 
   request
     .post(`${baseUrl}/comments`)
-    .set('Authorization', `Bearer ${jwt}`)
-    .send(data)
+  //  .set('Authorization', `Bearer ${jwt}`)
+    .send(data, ticketId)
     .then(response => {
       dispatch(createComment(response.body))
     })

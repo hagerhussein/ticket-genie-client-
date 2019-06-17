@@ -1,7 +1,10 @@
 import React from 'react'
 
 export default function CreateTicketForm(props) {
-  return (<form onSubmit={props.onSubmit}>
+  return (
+    <div>
+    <h3> fill in the form to upload your ticket to sell for this event</h3>
+  <form onSubmit={props.onSubmit}>
      <label>
       Picture:
       <input type="text" name="picture" onChange={props.onChange} value={props.values.picture} />
@@ -18,5 +21,5 @@ export default function CreateTicketForm(props) {
       <input type="text" name="price" onChange={props.onChange} value={props.values.price} />
     </label>
     <button type="submit">Save</button>
-  </form>)
+  </form></div>)
 }

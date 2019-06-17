@@ -19,6 +19,7 @@ export default function EventDetails(props) {
             <p key={ticket.id}><Link to={`/tickets/${ticket.id}`}>{ticket.description}</Link></p>
           </div>
         ))}
+        <button><Link to= "/add ticket">Add your ticket</Link></button>
        </div>
     ) 
 }

@@ -1,7 +1,13 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+
+
 
 export default function SignupForm(props) {
-  return (<form onSubmit={props.onSubmit}>
+  return (
+    <div>
+  <p>Please provide your details below to create an account</p>
+  <form className="form" onSubmit={props.onSubmit}>
     <label>
       First Name:
     <input type="text" name="firstName" value={props.values.firstName} onChange={props.onChange} />
@@ -19,6 +25,6 @@ export default function SignupForm(props) {
       <input type="password" name="password" value={props.values.password} onChange={props.onChange} />
     </label>
 
-    <button type="submit">Signup</button>
-  </form>)
+    <button type="submit"><Link to="/login">Signup</Link></button>
+  </form></div>)
 }

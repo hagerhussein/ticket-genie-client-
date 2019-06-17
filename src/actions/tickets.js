@@ -40,8 +40,7 @@ export const loadTickets = () => (dispatch, getState) => {
 }
 
 export const createTicket = (data) => (dispatch, getState) => {
-  const jwt = getState().currentUser
-  
+  const jwt = getState().authUser
   request
     .post(`${baseUrl}/tickets`)
     .set('Authorization', `Bearer ${jwt}`)
