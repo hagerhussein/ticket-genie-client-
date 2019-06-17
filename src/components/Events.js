@@ -10,6 +10,7 @@ export default function Events(props) {
 <div className="topnav">
 <h4><Link to="/login">Login</Link></h4>
 <h4><Link to="/signup">Create an account</Link></h4>
+<h4><Link to="/add event">Create an event</Link> </h4>
 </div>
 
    <div>

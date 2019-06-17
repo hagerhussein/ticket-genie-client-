@@ -4,7 +4,7 @@ export default function (state = [], action) {
       case ALL_TICKETS:
         return action.tickets
         case CREATE_TICKET_SUCCESS:
-          return [action.event, ...state]
+          return action.ticket
       default:
         return state
     }

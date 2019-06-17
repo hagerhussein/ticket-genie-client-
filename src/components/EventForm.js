@@ -1,7 +1,10 @@
 import React from 'react'
 
 export default function EventForm(props) {
-  return (<form onSubmit={props.onSubmit}>
+  return (
+  <div>
+    <h3> Fill in the details below to create your event</h3>
+    <form onSubmit={props.onSubmit}>
     <label>
       Name:
       <input type="text" name="name" onChange={props.onChange} value={props.values.name} />
@@ -33,5 +36,5 @@ export default function EventForm(props) {
     </label>
     
     <button type="submit">Save</button>
-  </form>)
+  </form></div>)
 }

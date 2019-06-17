@@ -15,7 +15,6 @@ export default function CreateTicketForm(props) {
       <input type="text" name="description" onChange={props.onChange} value={props.values.description} />
     </label>
 
-   
     <label>
      Price:
       <input type="text" name="price" onChange={props.onChange} value={props.values.price} />

@@ -24,6 +24,7 @@ class CreateTicketFormContainer extends React.PureComponent {
      
     })
     this.props.createTicket(this.state)
+    this.props.history.push("/")
   }
   render() {
     return (
@@ -35,6 +36,7 @@ class CreateTicketFormContainer extends React.PureComponent {
 const mapStateToProps = state => ({
   event: state.event,
   tickets: state.event.tickets,
-  allTickets: state.allTickets
+  allTickets: state.allTickets,
+  ticket: state.ticket
 })
 export default connect(mapStateToProps, { createTicket })(CreateTicketFormContainer)
