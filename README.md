@@ -40,6 +40,7 @@ Anybody can view events and tickets, but you have to login to add a new ticket o
 - React 
 - Redux 
 - Redux-Thunk 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
