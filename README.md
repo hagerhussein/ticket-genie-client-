@@ -4,7 +4,7 @@ This app was the final assignment for the Codaisseur academy during week 8. It i
 ## Description 
 The app has a login and signup page for customers. You need to login to create events, tickets and posting comments.
 
-# Events have:
+## Events have:
 - a name
 - a description
 - a picture or logo
