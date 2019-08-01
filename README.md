@@ -1,3 +1,45 @@
+## ticket-genie-client 
+This app was the final assignment for the Codaisseur academy during week 8. It is a full stack web-appication where users can buy and sell tickets for all kinds of events.
+
+## Description 
+The app has a login and signup page for customers. You need to login to create events, tickets and posting comments.
+
+# Events have:
+- a name
+- a description
+- a picture or logo
+- a start and end date (could be the same)
+
+After you click on an event, you see a list of tickets that are offered for this event.
+
+A ticket is made for a specific event and has an author (the user that created the ticket). Apart from that, it has:
+
+- a picture of the ticket (optional field)
+- a price
+- a description
+
+When you click on a ticket, you see the details of that ticket (description/price) and which event it's for. On this page you can add comments as a customer, and everybody can see all the comments.
+
+A comment has a text and is connected to a specific ticket. It also has an author.
+
+Anybody can view events and tickets, but you have to login to add a new ticket or comment.
+
+## User Stories 
+- As a customer I only want to see events that are not finished yet
+- As a customer I want to view a list of tickets when I click on an event
+- As a customer I want to view ticket details when I click on a ticket in the ticket list
+- As a customer I want to see what the fraud-risk is for a specific ticket
+- As a customer I want to be able to login, or sign up if I don't have an account yet
+- As a logged in customer I want to add a ticket (for a specific event) that shows up on the event page with a title, picture, price and description
+- As an author of the ticket I want to be able to edit a ticket's description, price and picture (other logged in customers cannot do this! only authors and admins)
+- As a logged in customer I want to be able to create events with a name, picture (logo), date and description
+- As a customer I can see some color (red/yellow/green) indicating the fraud risk of a ticket for all tickets in the all tickets list
+
+
+## Tools and Technologies Used:
+- React 
+- Redux 
+- Redux-Thunk 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
