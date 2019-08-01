@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { loadEvent } from '../actions/events'
 import EventDetails from './EventDetails'
 import { loadTickets } from '../actions/tickets'
-import { priceRisk } from './FraudRisk'
+
 
 
 class EventDetailsContainer extends React.PureComponent {
